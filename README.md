@@ -1,7 +1,7 @@
 Chat app
 ========
 
-This is a demo backbone application.
+This is backbone application.
 
 Specification
 =============
