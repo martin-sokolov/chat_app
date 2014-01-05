@@ -1,0 +1,20 @@
+<div id="chat-app">
+</div>
+
+<% if signed_in? %>
+  Logged in as <%= current_user.name %>
+  <%= link_to "Log out", logout_path %>
+<% end %>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(function() {
+      ChatApp.init({
+        element: $("#chat-app"),
+        collections: {
+          rooms: new ChatApp.Collections.Rooms().reset(<%== Room.all.to_json -%>)
+        }
+      });
+    });
+  </script>
+<% end %>
